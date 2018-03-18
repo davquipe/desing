@@ -1,26 +1,25 @@
 <div class="row">
     <div class="col-md-6">
-       <h1>*msg</h1>
-       <hr>
+       <h1>*ngIf</h1>
+        <hr>
 
-        <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
-          <div class="card-header">Header</div>
+        <button type="button" class="btn btn-outline-success btn-block" (click)= "mostrar = !mostrar">Mostrar/Ocultar</button>
+        <hr>
+        <div *ngIf="mostrar" class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+          <div class="card-header">{{frase.autor}}</div>
             <div class="card-body">
-              <h5 class="card-title">Primary card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <h5 class="card-title">{{ frase.mensaje }}</h5>
+              <p class="card-text">escrito por {{ frase.autor }}</p>
           </div>
         </div>
 
     </div>
     <div class="col-md-6">
-        <h1>*list</h1>
+        <h1>*ngFor</h1>
         <hr>
         <ul class="list-group">
-          <li class="list-group-item">Item X</li>
-          <li class="list-group-item">Item X</li>
-          <li class="list-group-item">Item X</li>
-          <li class="list-group-item">Item X</li>
-          <li class="list-group-item">Item X</li>
+          <!--el arreglo comienza de 0, para que comience de uno se le aumenta i + 1 -->
+          <li *ngFor="let persona of personajes; let i = index" class="list-group-item">{{ i }}. {{ persona }}</li>
         </ul>
 
     </div>
